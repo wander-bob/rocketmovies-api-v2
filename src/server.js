@@ -1,3 +1,4 @@
+require("dotenv/config");
 require("express-async-errors");
 const express = require("express")
 const knex = require("./database/knex");
@@ -7,7 +8,7 @@ const server = express();
 
 const routes = require("./routes");
 const AppError = require("./middlewares/AppError");
-const port = 3000;
+const port = process.env.SERVER_PORT;
 
 server.use(express.json());
 server.use(cors());

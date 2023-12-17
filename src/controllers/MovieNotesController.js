@@ -41,8 +41,7 @@ class MovieNotesController {
     const id = request.params.id;
     const user_id = request.user.id;
     const note = await knex("movie_notes").select("title", "description", "rating", "created_at").where({id}, {user_id}).first();
-    const tags = await knex("movie_tags").select("name").where({note_id: id});
-    
+    const tags = await knex("movie_tags").select("id","name").where({note_id: id});
     return response.json({...note, tags})
   }
   async delete(request, response){
