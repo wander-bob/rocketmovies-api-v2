@@ -1,5 +1,6 @@
 require("express-async-errors");
 const express = require("express")
+const knex = require("./database/knex");
 const cors = require("cors");
 const multerConfig = require("./configs/multerConfig")
 const server = express();
@@ -12,6 +13,7 @@ server.use(express.json());
 server.use(cors());
 server.use("/files", express.static(multerConfig.UPLOAD_FOLDER))
 server.use(routes);
+knex.migrate.latest();
 
 server.use((error, request, response, next)=>{
   console.log(error);
