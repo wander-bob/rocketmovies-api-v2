@@ -1,0 +1,28 @@
+{
+  "name": "rocketmovies-api-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "migration": "knex migrate:latest --knexfile ./src/database/knex/config/knexfile.js",
+    "migration-up": "knex migrate:up --knexfile ./src/database/knex/config/knexfile.js",
+    "migration-down": "knex migrate:down --knexfile ./src/database/knex/config/knexfile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.0.1",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.6"
+  }
+}
